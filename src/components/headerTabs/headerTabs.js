@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 const HeaderTabs = () => {
   const [activeTab, setActiveTab] = useState("Delivery");
   return (
-    <View style={{alignSelf: 'center', flexDirection: 'row'}}>
+    <View style={{ alignSelf: "center", flexDirection: "row" }}>
       <HeaderButton
         text="Delivery"
         btnColor="black"
@@ -25,9 +25,10 @@ const HeaderTabs = () => {
 
 export default HeaderTabs;
 
- const HeaderButton = (props) => (
+const HeaderButton = (props) => (
   <TouchableOpacity
     style={{
+      marginRight: 8,
       borderRadius: 30,
       paddingVertical: 8,
       paddingHorizontal: 16,
@@ -37,9 +38,9 @@ export default HeaderTabs;
   >
     <Text
       style={{
-          fontSize: 15,
-          fontWeight: "900",
-          color: props.activeTab === props.text ? "white" : "black",
+        fontSize: 15,
+        fontWeight: "900",
+        color: props.activeTab === props.text ? "white" : "black",
       }}
     >
       {props.text}
@@ -47,6 +48,4 @@ export default HeaderTabs;
   </TouchableOpacity>
 );
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});

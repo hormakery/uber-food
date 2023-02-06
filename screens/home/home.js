@@ -1,22 +1,30 @@
-import React from 'react'
-import { 
-    Text, 
-    View,
-    StyleSheet, 
-    SafeAreaView, 
-} from 'react-native'
+import React,{useState} from "react";
+import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+
+import SearchBar from "../../src/components/searchBar/searchBar";
+import HeaderTabs from "../../src/components/headerTabs/headerTabs";
+import Categories from "../../src/components/categories/categories";
+import RestaurantItems, { localRestaurants } from "../../src/components/restaurantItems/restaurantItems";
 
 
-import HeaderTabs from '../../src/components/headerTabs/headerTabs'
+const API_KEY=''
 
 const Home = () => {
+    const [restaurantData, setRestaurantData] = useState(localRestaurants)
   return (
     <SafeAreaView>
-      <HeaderTabs/>
+      <View style={{ backgroundColor: "#eee", padding: 15 }}>
+        <HeaderTabs />
+        <SearchBar />
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Categories />
+        <RestaurantItems restaurantData={restaurantData}/>
+      </ScrollView>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
